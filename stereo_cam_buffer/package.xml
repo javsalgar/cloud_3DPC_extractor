@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package>
+  <name>stereo_cam_buffer</name>
+
+  <version>1.0.0</version>
+
+  <description>Front-end node for buffering the stereo-stream. It will scatter the 
+  stereo frames to different extractor-nodes</description>
+
+  <url type="website">https://github.com/javsalgar/cloud_3dpc_extractor</url>
+  <url type="bugtracker">https://github.com/javsalgar/cloud_3dpc_extractor/issues</url>
+
+  <author email="jsalmeron2@us.es">Javier J. Salmeron-Garcia</author>
+  <maintainer email="jsalmeron2@us.es">Javier J. Salmeron-Garcia</maintainer>
+
+  <license>GPL</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_geometry</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>message_filters</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>message_generation</build_depend> 
+  <build_depend>bondcpp</build_depend>
+  <build_depend>cloud_3dpc_extractor_msgs</build_depend>
+  
+  <run_depend>cloud_3dpc_extractor_msgs</run_depend>
+  <run_depend>bondcpp</run_depend> 
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>image_geometry</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>message_filters</run_depend>
+  <run_depend>vision_opencv</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>std_srvs</run_depend>
+  <run_depend>message_runtime</run_depend>
+</package>

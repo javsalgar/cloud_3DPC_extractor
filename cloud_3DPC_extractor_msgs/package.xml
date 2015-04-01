@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>cloud_3dpc_extractor_msgs</name>
+  <version>1.0.0</version>
+  <description>Cloud 3dpc Extractor messages</description>
+
+  <url type="website">https://github.com/javsalgar/cloud_3dpc_extractor</url>
+  <url type="bugtracker">https://github.com/javsalgar/cloud_3dpc_extractor/issues</url>
+
+  <author email="jsalmeron2@us.es">Javier J. Salmeron-Garcia</author>
+  <maintainer email="jsalmeron2@us.es">Javier J. Salmeron-Garcia</maintainer>
+
+  <license>GPL</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
+</package>

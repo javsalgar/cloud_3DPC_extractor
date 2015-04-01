@@ -1,0 +1,27 @@
+<package>
+  <name>cloud_3dpc_extractor</name>
+  <version>1.0.0</version>
+  <description>
+    Cloud-based 3D Point Cloud extractor based on stereo_image_proc. 
+    This solution is dynamically scalable, hence it can be adapted 
+    to the needs of the robots.
+  </description>
+  
+  <license>GPL</license>
+
+  <url type="website">https://github.com/javsalgar/cloud_3dpc_extractor</url>
+  <url type="bugtracker">https://github.com/javsalgar/cloud_3dpc_extractor/issues</url>
+
+  <author email="jsalmeron2@us.es">Javier J. Salmeron-Garcia</author>
+  <maintainer email="jsalmeron2@us.es">Javier J. Salmeron-Garcia</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>cloud_3dpc_extractor_msgs</run_depend>
+  <run_depend>stereo_cam_buffer</run_depend>
+  <run_depend>extractor_node</run_depend>
+  
+  <export>
+    <metapackage/>
+  </export>
+</package>
