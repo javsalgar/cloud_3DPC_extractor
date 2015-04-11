@@ -90,6 +90,7 @@ catkin_package(
 ## in contrast to setup.py, you can choose the destination
 install(PROGRAMS
    scripts/extractor_node.py
+   scripts/Extractor3DPC.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

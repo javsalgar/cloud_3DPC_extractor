@@ -40,9 +40,9 @@ find_package(catkin REQUIRED COMPONENTS cloud_3dpc_extractor_msgs cv_bridge imag
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#   INCLUDE_DIRS include 
-#  LIBRARIES 
-  CATKIN_DEPENDS message_runtime
+   INCLUDE_DIRS include
+#   LIBRARIES
+   CATKIN_DEPENDS message_runtime
 #  DEPENDS system_lib
 )
 
@@ -57,12 +57,13 @@ include_directories(include
 )
 
 ## Declare a cpp library
-# add_library(pviso_buffer
-#   src/${PROJECT_NAME}/pviso_buffer.cpp
-# )
+ add_library(stereo_cam_buffer
+   src/stereo_cam_buffer.cpp
+   include/cloud_3dpc_extractor/stereo_cam_buffer.h
+ )
 
 ## Declare a cpp executable
-add_executable(buffer src/stereo_cam_buffer.cpp)
+add_executable(buffer src/buffer_main.cpp)
 add_dependencies(buffer cloud_3dpc_extractor_msgs_generate_messages_cpp)
 
 ## Add cmake target dependencies of the executable/library
@@ -71,6 +72,7 @@ add_dependencies(buffer cloud_3dpc_extractor_msgs_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(buffer
+  stereo_cam_buffer
   ${catkin_LIBRARIES}
 )
 
