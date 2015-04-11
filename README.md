@@ -10,4 +10,20 @@ having to restart the platform.
 
 This platform uses the stereo_image_proc library (http://wiki.ros.org/stereo_image_proc) for the 3D Point Cloud Extraction,
 and consists of two nodes: the front-end buffer (stereo_cam_buffer) and the 3DPC Extractors (extractor_node). In order
-to exploit the parallelism, a pipeline is created
+to exploit the parallelism, a pipeline is created. The front-end node receives the stereo stream and scatters it to the 3DPC Extractors in a pipeline fashion. 
+
+## Quick Start
+
+## Nodes
+
+### Stereo Cam Buffer
+
+#### Published topics
+
+#### Subscribed topics
+
+### 3DPC Extractor
+
+#### Published topics
+
+#### Subscribed topics
