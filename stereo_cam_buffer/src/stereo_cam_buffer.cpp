@@ -187,7 +187,7 @@ void cloud_3DPC_extractor::StereoCamBuffer::start() {
 
   bool use_udp;
 
-  std::string stereo_ns = nh.resolveName("stereo");
+  std::string stereo_ns = "";//nh.resolveName("stereo");
   std::string left_topic = ros::names::clean(stereo_ns + "/left/" + nh.resolveName("image_raw"));
   std::string right_topic = ros::names::clean(stereo_ns + "/right/" + nh.resolveName("image_raw"));
 
@@ -196,7 +196,7 @@ void cloud_3DPC_extractor::StereoCamBuffer::start() {
 
   local_nh.param<std::string>("output_filename_proc", save_time_file_name_proc, "time_buffer_proc.csv");
   local_nh.param<std::string>("output_filename_comm", save_time_file_name_comm, "time_buffer_comm.csv");
-  local_nh.param<bool>("measure_time", measure_time, true);
+  local_nh.param<bool>("measure_time", measure_time, false);
   local_nh.param<bool>("use_udp", use_udp, false);
   local_nh.param<bool>("check_if_broken", check_if_broken, true);
   local_nh.param<double>("heartbeat_period", heartbeat_period, 5.0);
@@ -254,7 +254,7 @@ void cloud_3DPC_extractor::StereoCamBuffer::start() {
     }
   else
     {
-      exact_sync_.reset(new ExactSync(ExactPolicy(queue_size_),
+      exact_sync_.reset(new ExactSync(ExactPolicy(  queue_size_),
 				      left_sub_, right_sub_, left_info_sub_, right_info_sub_) );
       exact_sync_->registerCallback(boost::bind(&StereoCamBuffer::forward_stereo_frame, this, _1, _2, _3, _4));
     }
