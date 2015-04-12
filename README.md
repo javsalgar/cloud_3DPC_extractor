@@ -85,24 +85,24 @@ Checks whether the 3DPC Extractor is alive
 #### Published topics
 
 ##### Management of each 3DPC Extractor (there is one of these topics per 3DPC Extractor running) 
-* <3DPC id>/bond (`bond/Status`)
+* <3DPC Extr. id>/bond (`bond/Status`)
 
 Checks whether the 3DPC Extractor is alive 
 
 ##### Stereo frame forwarding  (there is one of these topics per 3DPC Extractor running) 
 
-* `left/image_raw` (`sensor_msgs/Image`)
+* `<3DPC Extr. id>/left/image_raw` (`sensor_msgs/Image`)
 
  Forwarded stream to the left camera
-* `left/camera_info` (`sensor_msgs/CameraInfo`)
+* `<3DPC Extr. id>left/camera_info` (`sensor_msgs/CameraInfo`)
 
  Metadata from the left camera
 
-* `right/image_raw` (`sensor_msgs/Image`)
+* `<3DPC Extr. id>right/image_raw` (`sensor_msgs/Image`)
 
 Forwarded stream to the right camera
 
-* `right/camera_info` (`sensor_msgs/CameraInfo`)
+* `<3DPC Extr. id>right/camera_info` (`sensor_msgs/CameraInfo`)
 
 ### Parameters
 
@@ -144,7 +144,14 @@ Bond's heartbeat timeout (for more information, see bond library's documentation
 
 If enabled, time information (communication and processing times) will be saved in text files.
 
-* `~`
+* `~output_filename_proc (string, default=time_buffer_proc.csv)`
+
+Path to the text file containing Stereo Cam Buffer's computation times
+
+* `~output_filename_comm (string, default=time_buffer_comm.csv)`
+
+Path to the text file containing Stereo Cam Buffer's communication times
+
 ### 3DPC Extractor (`extractor_node`)
 
 #### Published topics
