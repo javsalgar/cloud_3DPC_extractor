@@ -116,15 +116,35 @@ If enabled, the camera stream is received using the UDP transport protocol.
 
 Compression mechanism of the camera stream. The options are those allowed by `image_transport` (raw, theora, compressed).
 
+* `~queue_size (int, default=1)`
+
+Size of the stereo frame queue (for systems with real time constraints, a value higher than 1 is not recommended) 
+
+* `~approximate_sync (bool, default=false)`
+ 
+If enabled, the frame synchronization (from left and right cameras) will not be based on exact timestamp but an approximation.
+
 #### 3DPC Extractor's bond management
 
 * `~check_if_broken (bool, default=true)`
 
 If enabled, the Stereo Cam Buffer will check if the 3DPC Extractors are still alive. If a 3DPC Extractor dies, then no more frames will be sent to that node. 
 
-* `~heartbeat_period`
-* 
+* `~heartbeat_period (double, default=5.0)`
+ 
+Bond's heartbeat period (for more information, see bond library's documentation page)
 
+* `~heartbeat_timeout (double, default=10.0)`
+ 
+Bond's heartbeat timeout (for more information, see bond library's documentation page)
+
+#### Profiling
+
+* `~measure_time (bool, default=false)`
+
+If enabled, time information (communication and processing times) will be saved in text files.
+
+* `~`
 ### 3DPC Extractor (`extractor_node`)
 
 #### Published topics
