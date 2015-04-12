@@ -57,14 +57,54 @@ This node receives the stereo stream from the camera and scatters it in a round-
 
 #### Subscribed topics
 ##### Left Camera
-* `left/image_raw` (sensor_msgs/Image)
+* `left/image_raw` (`sensor_msgs/Image`)
 
  Image stream from the left camera
-* `left/camera_info` (sensor_msgs/CameraInfo)
+* `left/camera_info` (`sensor_msgs/CameraInfo`)
 
  Metadata from the left camera
+
+##### Right Camera
+* `right/image_raw` (`sensor_msgs/Image`)
+
+ Image stream from the right camera
+* `right/camera_info` (`sensor_msgs/CameraInfo`)
+
+ Metadata from the right camera
+
+##### Overall 3DPC Extractor management
+* new_3dpc_extractor (`cloud_3dpc_extractor_msgs/New3DPCExtractor`)
+ 
+When a new 3DPC Extractor is available, the Stereo Cam Buffer will be notified using this topic.
+
+##### Management of each 3DPC Extractor (there is one of these topics per 3DPC Extractor running) 
+* <3DPC id>/bond (`bond/Status`)
+
+Checks whether the 3DPC Extractor is alive 
+
 #### Published topics
 
+##### Management of each 3DPC Extractor (there is one of these topics per 3DPC Extractor running) 
+* <3DPC id>/bond (`bond/Status`)
+
+Checks whether the 3DPC Extractor is alive 
+
+##### Stereo frame forwarding  (there is one of these topics per 3DPC Extractor running) 
+
+###### Left Camera
+* `left/image_raw` (`sensor_msgs/Image`)
+
+ Forwarded stream to the left camera
+* `left/camera_info` (`sensor_msgs/CameraInfo`)
+
+ Metadata from the left camera
+
+###### Right Camera
+* `right/image_raw` (`sensor_msgs/Image`)
+
+Forwarded stream to the right camera
+
+* `right/camera_info` (`sensor_msgs/CameraInfo`)
 
 ### 3DPC Extractor (`extractor_node`)
 
