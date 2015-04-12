@@ -163,9 +163,9 @@ of 3DPCs. For more information on how the 3DPC extraction is done, please refer 
 
 ##### Contact with Stereo Cam Buffer
 
-*`/bond` (`bond/Status)`
+* `/bond` (`bond/Status)`
 
-Use to communicate status with the Stereo Cam Buffer.
+Used to communicate status with the Stereo Cam Buffer.
 
 * `/new_3dpc_extractor` (`cloud_3dpc_extractor_msgs/New3DPCExtractor`)
 
@@ -187,11 +187,49 @@ When this node is awake, it will notify the Stereo Cam Buffer.
 
 #### Subscribed topics
 
+##### Contact with Stereo Cam Buffer
+
+* `/bond` (`bond/Status)`
+
+Used to communicate status with the Stereo Cam Buffer.
+
+##### stereo_image_proc topics (please refer to `stereo_image_proc` documentation for more information)
 
 * `left/image_raw` (`sensor_msgs/Image`)
 * `left/camera_info` (`sensor_msgs/CameraInfo`)
 * `right/image_raw` (`sensor_msgs/Image`)
 * `right/camera_info` (`sensor_msgs/CameraInfo`)
 
+### Parameters
+
+#### Wrapper
+
+* `~delay (int, default=5)`
+ 
+Time to wait before starting the 3DPC Extractor
+
+* `~restore_time (int, default=5)`
+ 
+Period T where the bond is restored in case of fail.
+
+* `~heartbeat_period (double, default=5.0)`
+ 
+Bond's heartbeat period (for more information, see bond library's documentation page)
+
+* `~heartbeat_timeout (double, default=10.0)`
+ 
+Bond's heartbeat timeout (for more information, see bond library's documentation page)
+
+#### `stereo_image_proc` parameters (please refer to `stereo_image_proc` documentation for more information)
+
+* `~prefilter_size` (`int, default: 23`)
+* `~prefilter_cap` (`int, default: 33`)
+* `~correlation_window_size` (`int, default: 41`)
+* `~min_disparity` (`int, default: 44`)
+* `~disparity_range` (`int, default: 64`)
+* `~uniqueness_ratio` (`double, default: 15.0`)
+* `~texture_threshold` (`int, default: 10`)
+* `~speckle_size` (`int, default: 356`)
+* `~speckle_range` (`int, default: 7`)
 
 ## Docker images
