@@ -146,16 +146,52 @@ If enabled, time information (communication and processing times) will be saved 
 
 * `~output_filename_proc (string, default=time_buffer_proc.csv)`
 
-Path to the text file containing Stereo Cam Buffer's computation times
+Path to the text file where Stereo Cam Buffer's computation times will be written
 
 * `~output_filename_comm (string, default=time_buffer_comm.csv)`
 
-Path to the text file containing Stereo Cam Buffer's communication times
+Path to the text where Stereo Cam Buffer's communication times will be written
 
 ### 3DPC Extractor (`extractor_node`)
+This node is a wrapper of the `stereo_image_proc` library conceived to be replicated as much times as necessary to 
+obtain better 3DPC Extraction processing times. It is also able to communicate with the Stereo Cam Buffer and notify
+whether it is alive or not (so the platform can scale out and back depending on the needs). All 3DPC Extractors will
+share the same /points2 and /disparity topic, so for the subscribed process it will appear as one single stream 
+of 3DPCs. For more information on how the 3DPC extraction is done, please refer to the `stereo_image_proc` documentation. 
 
 #### Published topics
 
+##### Contact with Stereo Cam Buffer
+
+*`/bond` (`bond/Status)`
+
+Use to communicate status with the Stereo Cam Buffer.
+
+* `/new_3dpc_extractor` (`cloud_3dpc_extractor_msgs/New3DPCExtractor`)
+
+When this node is awake, it will notify the Stereo Cam Buffer.
+
+##### stereo_image_proc topics (please refer to stereo_image_proc documentation for more information)
+
+* `left/image_mono` (`sensor_msgs/Image`)
+* `left/image_rect` (`sensor_msgs/Image`)
+* `left/image_color` (`sensor_msgs/Image`)
+* `left/image_rect_color` (`sensor_msgs/Image`)
+* `right/image_mono` (`sensor_msgs/Image`)
+* `right/image_rect` (`sensor_msgs/Image`)
+* `right/image_color` (`sensor_msgs/Image`)
+* `right/image_rect_color` (`sensor_msgs/Image`)
+* `points` (`sensor_msgs/PointCloud`)
+* `disparity` (`stereo_msgs/DisparityImage`)
+* `points2` (`sensor_msgs/PointCloud2`)
+
 #### Subscribed topics
+
+
+* `left/image_raw` (`sensor_msgs/Image`)
+* `left/camera_info` (`sensor_msgs/CameraInfo`)
+* `right/image_raw` (`sensor_msgs/Image`)
+* `right/camera_info` (`sensor_msgs/CameraInfo`)
+
 
 ## Docker images
