@@ -91,7 +91,6 @@ Checks whether the 3DPC Extractor is alive
 
 ##### Stereo frame forwarding  (there is one of these topics per 3DPC Extractor running) 
 
-###### Left Camera
 * `left/image_raw` (`sensor_msgs/Image`)
 
  Forwarded stream to the left camera
@@ -99,12 +98,32 @@ Checks whether the 3DPC Extractor is alive
 
  Metadata from the left camera
 
-###### Right Camera
 * `right/image_raw` (`sensor_msgs/Image`)
 
 Forwarded stream to the right camera
 
 * `right/camera_info` (`sensor_msgs/CameraInfo`)
+
+### Parameters
+
+#### Camera stream reception
+
+* `~use_udp (bool, default=false)`
+
+If enabled, the camera stream is received using the UDP transport protocol.
+
+* `~transport (string, default=raw)`
+
+Compression mechanism of the camera stream. The options are those allowed by `image_transport` (raw, theora, compressed).
+
+#### 3DPC Extractor's bond management
+
+* `~check_if_broken (bool, default=true)`
+
+If enabled, the Stereo Cam Buffer will check if the 3DPC Extractors are still alive. If a 3DPC Extractor dies, then no more frames will be sent to that node. 
+
+* `~heartbeat_period`
+* 
 
 ### 3DPC Extractor (`extractor_node`)
 
