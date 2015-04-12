@@ -233,3 +233,5 @@ Bond's heartbeat timeout (for more information, see bond library's documentation
 * `~speckle_range` (`int, default: 7`)
 
 ## Docker images
+
+A docker image repository is available with the cloud_3dpc_extractor pre-installed and ready for deployment in any cloud or local system. Please check https://registry.hub.docker.com/u/javsalgar/cloud_3dpc_extractor/
