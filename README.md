@@ -52,13 +52,19 @@ edit the /etc/hosts file in all the computers.
 
 ## Nodes
 
-### Stereo Cam Buffer
-
-#### Published topics
+### Stereo Cam Buffer (`stereo_cam_buffer`)
+This node receives the stereo stream from the camera and scatters it in a round-robin fashion. In other words, it buffers and forwards the stereo frame pairs to have them processed by the 3DPC Extractors. It allows the use of either tcp or udp, together with different compression techniques that the image_transport package offers (raw, theora, compressed). 
 
 #### Subscribed topics
+##### Left Camera
+*`left/image_raw` (sensor_msgs/Image)
+ Image stream from the left camera
+*`left/camera_info` (sensor_msgs/CameraInfo)
+ Metadata from the left camera
+#### Published topics
 
-### 3DPC Extractor
+
+### 3DPC Extractor (`extractor_node`)
 
 #### Published topics
 
