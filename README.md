@@ -57,9 +57,11 @@ This node receives the stereo stream from the camera and scatters it in a round-
 
 #### Subscribed topics
 ##### Left Camera
-*`left/image_raw` (sensor_msgs/Image)
+* `left/image_raw` (sensor_msgs/Image)
+
  Image stream from the left camera
-*`left/camera_info` (sensor_msgs/CameraInfo)
+* `left/camera_info` (sensor_msgs/CameraInfo)
+
  Metadata from the left camera
 #### Published topics
 
